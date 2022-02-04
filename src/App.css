@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.card{
+  background-color: aqua;
+  font-size: large;
+  font-weight: bold;
+  padding: 20px;
+  margin: 40px;
+}

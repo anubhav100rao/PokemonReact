@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import { useState } from 'react';
+import Card from './Card';
+
+
+const api = axios.create({
+  baseURL: `https://pokeapi.co/api/v2/pokemon`
+})
+
+
+
 
 function App() {
+
+  const [data, setData] = useState([])
+
+  async function getAllData() {
+    try {
+      const result = await api.get('/')
+      console.log(result.data.results)
+      setData(result.data.results)
+      console.log(data)
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        onClick = {
+          () => getAllData()
+        }
+      >
+        Load data
+      </button>
+        {
+          data.map(item => <Card item={item} />
+          )
+        }
     </div>
   );
 }
