@@ -9,8 +9,6 @@ const api = axios.create({
 })
 
 
-
-
 function App() {
 
   const [data, setData] = useState([])
@@ -26,19 +24,34 @@ function App() {
     }
   }
 
+  function clearData() {
+    setData([])
+  }
+
   return (
     <div className="App">
       <button
+        className='btn'
         onClick = {
           () => getAllData()
         }
       >
         Load data
       </button>
+      
+      <button
+        className='btn'
+        onClick={
+          () => clearData()
+        }
+      >
+        clear data
+      </button>
         {
           data.map(item => <Card item={item} />
           )
         }
+        
     </div>
   );
 }

@@ -38,9 +38,20 @@
 }
 
 .card{
-  background-color: aqua;
+  /* background-color: aqua; */
   font-size: large;
   font-weight: bold;
   padding: 20px;
   margin: 40px;
+}
+
+.btn {
+  padding: 10px;
+  margin: 20px;
+  background-color: #fa88e7;
+}
+.btn:hover{
+  background-color: rgb(7, 76, 141);
+  color: white;
+  width: 200px;
 }
